@@ -11,7 +11,7 @@ new Vue({
        }
     },
     ready: function(){
-       //需要在根目录引入tinymce
+       //闇�鍦ㄦ牴鐩綍寮曞叆tinymce
        require('tinymce')
     },
     components: {
