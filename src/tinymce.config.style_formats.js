@@ -1,4 +1,4 @@
-[
+module.exports = [
     {"title": "Inline", "items": [
         {"title": "Bold", "icon": "bold", "format": "bold"},
         {"title": "Italic", "icon": "italic", "format": "italic"},

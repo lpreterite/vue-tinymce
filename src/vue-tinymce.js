@@ -1,6 +1,10 @@
-var inChange = false
 module.exports = {
     template: __inline('vue-tinymce.tpl'),
+    data: function(){
+        return {
+            vueChange: false
+        }
+    },
     props: {
         model: {
             required: true,
@@ -10,18 +14,16 @@ module.exports = {
         }
     },
     ready: function(){
-
         var self = this
-        var config = __inline('tinymce.config.json')
-        config.style_formats = __inline('tinymce.config.style_formats.json')
+        var config = require('tinymce.config')
+        config.target = this.$els.input
+        config.style_formats = require('tinymce.config.style_formats')
         config.setup = function(editor){
+            //init
             editor.on('init', function(){
                 editor.setContent(self.model)
                 editor.on('change', function(){
-                    inChange = true
-                    self.model = tinymce.activeEditor.getContent()
-                    console.log(self.model)
-                    inChange = false
+                    if(!self.vueChange) self.model = tinymce.activeEditor.getContent()
                 })
             })
         }
@@ -32,11 +34,9 @@ module.exports = {
     },
     watch: {
         'model': function(val, oldVal){
-            if(!inChange) return
-            if(!!tinymce.activeEditor){
-                console.log('in watch')
-                tinymce.activeEditor.setContent(val)
-            }
+            this.vueChange = true
+            if(!!tinymce.activeEditor) tinymce.activeEditor.setContent(val)
+            this.vueChange = false
         }
     }
 }
