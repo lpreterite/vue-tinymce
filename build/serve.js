@@ -6,12 +6,12 @@ options.entry = './example/main.js';
 options.devtool = '#source-map';
 options.output = {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/vendor/',
+    publicPath: '/',
     filename: 'build.js'
 };
 options.devServer = {
     historyApiFallback: true,
     noInfo: true,
-    contentBase: [path.join(__dirname, '../example')]
+    contentBase: [path.join(__dirname, '../example'),path.join(__dirname, '../node_modules/tinymce')]
 };
 module.exports = options;

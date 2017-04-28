@@ -1,5 +1,3 @@
-import 'tinymce';
-import 'tinymce/themes/modern'; //TODO: 载入样式
 import Vue from 'vue';
 import VueTinymce from '../src/vue-tinymce.vue';
 
@@ -9,9 +7,18 @@ var vm = new Vue({
     el: '#app',
     data: function(){
         return {
-            title: 'VueTinymce'
+            title: 'VueTinymce',
+            content: '<p>html content</p>',
+            content2: '<p>多个文本测试</p><hr><p>第二行</p>',
+            tinymceSetting: {
+                language_url: "langs/zh_CN.js",
+                height: 200
+            }
         }
     },
     methods: {
+        getTinymceId(name){
+            alert(this.$refs[name].id);
+        }
     }
 })

@@ -1,1 +1,0 @@
-<textarea class="textarea" id="input" v-el:input></textarea>

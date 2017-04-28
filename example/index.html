@@ -7,8 +7,20 @@
   <body>
     <div id="app">
       <h1>{{ title }}</h1>
-      <vue-tinymce></vue-tinymce>
+      <p>
+        <button @click="getTinymceId('test1')">getTinymceId('test1')</button>
+        <button @click="getTinymceId('test2')">getTinymceId('test2')</button>
+      </p>
+
+      <h2>TEST1</h2>
+      <code v-html="content"></code>
+      <vue-tinymce ref="test1" :value="content" :setting="tinymceSetting" @change="content=arguments[0]"></vue-tinymce>
+
+      <h2>TEST2</h2>
+      <code v-html="content2"></code>
+      <vue-tinymce ref="test2" :value="content2" :setting="tinymceSetting" @change="content2=arguments[0]"></vue-tinymce>
     </div>
-    <script src="/vendor/build.js"></script>
+    <script src="/tinymce.min.js"></script>
+    <script src="/build.js"></script>
   </body>
 </html>
