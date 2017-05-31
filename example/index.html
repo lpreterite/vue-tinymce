@@ -14,11 +14,11 @@
 
       <h2>TEST1</h2>
       <code v-html="content"></code>
-      <vue-tinymce ref="test1" :value="content" :setting="tinymceSetting" @change="content=arguments[0]"></vue-tinymce>
+      <vue-tinymce ref="test1" v-model="content" :setting="tinymceSetting" @change="content=arguments[0]"></vue-tinymce>
 
       <h2>TEST2</h2>
       <code v-html="content2"></code>
-      <vue-tinymce ref="test2" :value="content2" :setting="tinymceSetting" @change="content2=arguments[0]"></vue-tinymce>
+      <vue-tinymce ref="test2" v-model="content2" :setting="tinymceSetting" @change="content2=arguments[0]"></vue-tinymce>
     </div>
     <script src="/tinymce.min.js"></script>
     <script src="/build.js"></script>

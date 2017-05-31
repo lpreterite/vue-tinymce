@@ -6,6 +6,10 @@ Vue.component('vue-tinymce', VueTinymce);
 var vm = new Vue({
     el: '#app',
     data: function(){
+        setTimeout(()=>{
+            this.content = '<p>html content'+ Date.now() +'</p>';
+        }, 1000);
+
         return {
             title: 'VueTinymce',
             content: '<p>html content</p>',
