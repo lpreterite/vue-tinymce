@@ -33,9 +33,8 @@ new Vue({
 <div id="app">
   <vue-tinymce
     ref="tinymce"
-    :value="content"
-    :setting="setting"
-    @change="content=arguments[0]">
+    v-model="content"
+    :setting="setting">
   </vue-tinymce>
 </div>
 <!-- in last -->
