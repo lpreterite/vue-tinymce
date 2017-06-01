@@ -1,6 +1,10 @@
 # vue-tinymce
 A vue component for TinyMCE
 
+## Features
+- [x] v-model support
+- [x] self managed id
+
 ## How to use
 ### setup
 ```
