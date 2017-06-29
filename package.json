@@ -1,6 +1,6 @@
 {
   "name": "vue-tinymce",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "tinymce by vue component",
   "main": "dist/vue-tinymce.js",
   "scripts": {

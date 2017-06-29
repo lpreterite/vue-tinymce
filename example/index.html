@@ -13,12 +13,24 @@
       </p>
 
       <h2>TEST1</h2>
-      <code v-html="content"></code>
-      <vue-tinymce ref="test1" v-model="content" :setting="tinymceSetting" @change="content=arguments[0]"></vue-tinymce>
+      <code v-html="tinymce[0].content"></code>
+      <vue-tinymce ref="test1" v-model="tinymce[0].content" :setting="tinymce[0].setting"></vue-tinymce>
 
-      <h2>TEST2</h2>
-      <code v-html="content2"></code>
-      <vue-tinymce ref="test2" v-model="content2" :setting="tinymceSetting" @change="content2=arguments[0]"></vue-tinymce>
+      <h2>
+        <span>Add emotion example</span>
+      </h2>
+      <div>
+        <button @click="insertEmotion($refs.test2.editor, '[哈哈]')">add img</button>
+        <button @click="format.after = formatHtml(tinymce[1].content, emotions)">format html</button>
+        <button @click="format.before = restoreHtml(format.after, emotions)">restore html</button>
+      </div>
+      <div>
+        <code>format after: {{ format.after }}</code>
+      </div>
+      <div>
+        <code>format before: {{ format.before }}</code>
+      </div>
+      <vue-tinymce ref="test2" v-model="tinymce[1].content" :setting="tinymce[1].setting"></vue-tinymce>
     </div>
     <script src="/tinymce.min.js"></script>
     <script src="/build.js"></script>
