@@ -1,6 +1,10 @@
 # vue-tinymce
 A vue component for TinyMCE
 
+## Features
+- [x] v-model support
+- [x] self managed id
+
 ## How to use
 ### setup
 ```
@@ -33,9 +37,8 @@ new Vue({
 <div id="app">
   <vue-tinymce
     ref="tinymce"
-    :value="content"
-    :setting="setting"
-    @change="content=arguments[0]">
+    v-model="content"
+    :setting="setting">
   </vue-tinymce>
 </div>
 <!-- in last -->

@@ -1,5 +1,9 @@
 <script>
 
+const INIT = 0;
+const INPUT = 1;
+const CHANGED = 2;
+
 const tinymceSetting = {
     "menubar": false,
     "height": 500,
@@ -19,19 +23,6 @@ const tinymceSetting = {
 };
 
 export default {
-    render(createElement){
-        return createElement('textarea', {
-            attrs: {
-                id: this.id
-            }
-        });
-    },
-    data(){
-        return {
-            id: 'vue-tinymce-'+Date.now(),
-            editor: null
-        }
-    },
     props: {
         value: {
             type: String,
@@ -58,16 +49,30 @@ export default {
             }
         }
     },
+    render(createElement){
+        return createElement('textarea', {
+            attrs: {
+                id: this.id
+            }
+        });
+    },
+    data(){
+        return {
+            id: 'vue-tinymce-'+Date.now(),
+            editor: null,
+            status: INIT
+        }
+    },
+    watchs:{
+        value(val){
+            if(this.status === CHANGED || selt.status === INIT) return this.status = INPUT;
+            tinymce.get(this.id).setContent(val);
+        }
+    },
     created(){
         if(typeof tinymce === "undefined") throw new Error('tinymce undefined');
     },
     mounted(){
-        const selt = this;
-
-        const unwatch = this.$watch('value', val => {
-            tinymce.get(this.id).setContent(val);
-        })
-
         const setting = Object.assign(
             {
                 plugins: this.plugins
@@ -78,24 +83,23 @@ export default {
                 selector: '#'+this.id,
                 theme: 'modern',
                 setup: (editor)=> {
-                    selt.setup(editor);
+                    this.setup(editor);
                     this.editor = editor;
                     editor.on('init', ()=>{
-                        function change(){
-                            if(editor.undoManager.data.length<=1) return unwatch();
-                            selt.$emit('change', editor.getContent());
-                        };
-                        editor.setContent(selt.value);
-                        editor.on('change undo redo', change);
+                        editor.setContent(this.value);
+                        editor.on('input change undo redo', ()=>{
+                            if(this.status === INPUT || this.status === INIT) return this.status = CHANGED;
+                            this.$emit('input', editor.getContent());
+                        });
                     });
                 }
             }
         );
 
-        tinymce.init(setting)
+        tinymce.init(setting);
     },
     beforeDestroy: function(){
-        tinymce.remove(this.id)
+        tinymce.remove(this.id);
     }
 }
 </script>
