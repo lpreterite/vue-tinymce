@@ -8,7 +8,7 @@ var vm = new Vue({
     el: '#app',
     data: function(){
         setTimeout(()=>{
-            this.tinymce[0].content = '<p>html content'+ Date.now() +'</p>';
+            this.tinymce[0].content = 'html content'+ Date.now() +'';
         }, 1000);
 
         return {
@@ -22,7 +22,7 @@ var vm = new Vue({
             },
             tinymce: [
                 {
-                    content: '<p>html content</p>',
+                    content: 'html content',
                     setting: Object.assign(TinymceSetting, {
                         language_url: "langs/zh_CN.js",
                         height: 200
