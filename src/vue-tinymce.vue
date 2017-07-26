@@ -32,13 +32,18 @@ export default {
         return {
             id: 'vue-tinymce-'+Date.now(),
             editor: null,
-            status: INIT
+            status: INIT,
+            backup: ''
         }
     },
     watchs:{
         value(val){
-            if(this.status === CHANGED || selt.status === INIT) return this.status = INPUT;
-            tinymce.get(this.id).setContent(val);
+            if(this.status === CHANGED || this.status === INIT) return this.status = INPUT;
+            if(tinymce.get(this.id).initialized){
+                tinymce.get(this.id).setContent(val);
+            }else{
+                this.backup = val;
+            }
         }
     },
     created(){
@@ -53,7 +58,7 @@ export default {
                     this.setup(editor);
                     this.editor = editor;
                     editor.on('init', ()=>{
-                        editor.setContent(this.value);
+                        editor.setContent(this.value || this.backup);
                         editor.on('input change undo redo', ()=>{
                             if(this.status === INPUT || this.status === INIT) return this.status = CHANGED;
                             this.$emit('input', editor.getContent());
@@ -66,7 +71,7 @@ export default {
         tinymce.init(setting);
     },
     beforeDestroy: function(){
-        tinymce.remove(this.id);
+        tinymce.get(this.id).remove();
     }
 }
 </script>
