@@ -67,6 +67,9 @@ npm run build
 
 # Change log
 
+## 0.1.3
+fix vue-tinymce can't set content after init
+
 ## 0.1.2
 
 The tinymce default setting is removed.
