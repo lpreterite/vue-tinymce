@@ -36,7 +36,7 @@ export default {
             backup: ''
         }
     },
-    watchs:{
+    watch:{
         value(val){
             if(this.status === CHANGED || this.status === INIT) return this.status = INPUT;
             if(tinymce.get(this.id).initialized){
