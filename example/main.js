@@ -29,7 +29,7 @@ var vm = new Vue({
                     })
                 },
                 {
-                    content: '<p>多个文本测试</p><hr><p>第二行</p>',
+                    content: '<p>Vue</p><hr><p>The Progressive JavaScript Framework</p>',
                     setting: {
                         language_url: "langs/zh_CN.js",
                         height: 200,

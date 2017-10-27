@@ -60,8 +60,13 @@ export default {
                         // console.log('init', this.value);
                         editor.setContent(this.value);
                         //fix execCommand not change ,more see issues#2
-                        editor.on('input change undo redo execCommand', ()=>{
+                        editor.on('input change undo redo execCommand KeyUp', ()=>{
                             if(this.status === INPUT || this.status === INIT) return this.status = CHANGED;
+                            this.$emit('input', editor.getContent());
+                            console.log('editor change', editor.getContent());
+                        });
+                        //fix have chang not to emit input,more see issues #4
+                        editor.on('NodeChange', ()=>{
                             this.$emit('input', editor.getContent());
                         });
                     });
