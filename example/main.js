@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import { VueTinymce , TinymceSetting } from '../dist/vue-tinymce';
-// import { VueTinymce , TinymceSetting } from '../src/';
+// import { VueTinymce , TinymceSetting } from '../dist/vue-tinymce';
+import { VueTinymce , TinymceSetting } from '../src/';
 
 Vue.component('vue-tinymce', VueTinymce);
 
