@@ -1,4 +1,6 @@
 # vue-tinymce
+![vue](https://img.shields.io/badge/vue-%5E2.2.x-green.svg)
+
 A vue component for TinyMCE
 
 ## Features
