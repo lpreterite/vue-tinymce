@@ -1,6 +1,13 @@
 import Vue from 'vue';
+import router from './routes';
 // import { VueTinymce , TinymceSetting } from '../dist/vue-tinymce';
 import { VueTinymce , TinymceSetting } from '../src/';
+
+const app = new Vue({
+    name: 'route-root',
+    el: '#route-app',
+    router
+});
 
 Vue.component('vue-tinymce', VueTinymce);
 

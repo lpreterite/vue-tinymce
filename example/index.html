@@ -5,6 +5,15 @@
     <title>vue-tinymce</title>
   </head>
   <body>
+    <div id="route-app">
+      <section class="container">
+        <p>
+          <router-link to="/home">Home</router-link> | 
+          <router-link to="/article">Article</router-link>
+        </p>
+        <router-view></router-view>
+      </section>
+    </div>
     <div id="app">
       <h1>{{ title }}</h1>
       <p>
