@@ -5,17 +5,20 @@
     </div>
 </template>
 <script>
+import { VueTinymce , TinymceSetting } from '../../src/';
 export default {
     data(){
         return {
-            setting: {
-            }
+            setting: Object.assign({}, TinymceSetting, {})
         }
     },
     methods: {
         setup(editor){
             console.log("Article init editor id:"+editor.id);
         }
+    },
+    components: {
+        VueTinymce
     }
 }
 </script>

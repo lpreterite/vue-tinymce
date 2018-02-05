@@ -1,11 +1,13 @@
 # vue-tinymce
 ![vue](https://img.shields.io/badge/vue-%5E2.2.x-green.svg)
+![vue](https://img.shields.io/badge/tinymce-%5E4.5.7-green.svg)
 
 A vue component for TinyMCE
 
 ## Features
 - [x] v-model support
 - [x] self managed id
+- [ ] add more tinymce example
 
 ## How to use
 ### setup
@@ -65,28 +67,3 @@ npm run dev
 npm i
 npm run build
 ```
-
-
-# Change log
-
-## 0.1.5
-fix the problem of not updating the content in real time.
-
-## 0.1.4
-fix editor plugin is loading and set content will throw error.
-add execCommand on to editor event, fix issue #2.
-
-## 0.1.3
-fix vue-tinymce can't set content after init.
-
-## 0.1.2
-
-The tinymce default setting is removed.
-
-Vue element change to 'div'.
-
-Have new example: add emotion to context and format html.
-
-## 0.1.1
-
-support v-model, and fix input bug.

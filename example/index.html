@@ -5,16 +5,8 @@
     <title>vue-tinymce</title>
   </head>
   <body>
-    <div id="route-app">
-      <section class="container">
-        <p>
-          <router-link to="/home">Home</router-link> | 
-          <router-link to="/article">Article</router-link>
-        </p>
-        <router-view></router-view>
-      </section>
-    </div>
-    <div id="app">
+    <section id="app"></section>
+    <!-- <div id="app">
       <h1>{{ title }}</h1>
       <p>
         <button @click="getTinymceId('test1')">getTinymceId('test1')</button>
@@ -40,7 +32,7 @@
         <code>format before: {{ format.before }}</code>
       </div>
       <vue-tinymce ref="test2" v-model="tinymce[1].content" :setting="tinymce[1].setting"></vue-tinymce>
-    </div>
+    </div> -->
     <script src="/tinymce.min.js"></script>
     <script src="/build.js"></script>
   </body>

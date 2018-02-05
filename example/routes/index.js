@@ -10,7 +10,7 @@ const router = new VueRouter({
             component: r => require.ensure([], () => r(require('../pages/Home.vue')))
         },
         {
-            path: '/article',
+            path: '/how-to-use',
             component: r => require.ensure([], () => r(require('../pages/Article.vue')))
         }
     ]
