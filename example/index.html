@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>vue-tinymce</title>
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/vs2015.min.css">
   </head>
   <body>
     <section id="app"></section>
@@ -35,5 +37,8 @@
     </div> -->
     <script src="/tinymce.min.js"></script>
     <script src="/build.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
   </body>
 </html>

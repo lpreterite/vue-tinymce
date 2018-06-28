@@ -1,16 +1,12 @@
 <template>
     <div>
-        <h2>install</h2>
-        <pre v-highlight><code>$ npm install @packy-tang/vue-tinymce <br>or <br>$ yarn add @packy-tang/vue-tinymce</code></pre>
-
-        <h2>example</h2>
-        <div class="editor">
-            <vue-tinymce v-model="content" :setting="setting" :setup="setup"></vue-tinymce>
-        </div>
+        <h1>Insert image</h1>
+        <p>
+            <a class="btn" href="javascript:;" @click="onClick('packy','//uxfeel.com/uploads/avatar.png')">add image in content</a> => <img width="50" src="//uxfeel.com/uploads/avatar.png" alt="">
+        </p>
+        <vue-tinymce ref="tinymce" v-model="content" :setting="setting" :setup="setup"></vue-tinymce>
     </div>
 </template>
-<style scoped>
-</style>
 <script>
 import { VueTinymce , TinymceSetting } from '../../src/';
 export default {
@@ -35,6 +31,15 @@ export default {
     methods: {
         setup(editor){
             // init editor yourself
+        },
+        insertImg(editor, {path, key}){
+            editor.undoManager.transact(function(){
+                editor.focus();
+                editor.selection.setContent(editor.dom.createHTML('img', {src: path, 'data-key': key}));
+            })
+        },
+        onClick(key, path){
+            this.insertImg(this.$refs.tinymce.editor, { key, path })
         }
     },
     components: {

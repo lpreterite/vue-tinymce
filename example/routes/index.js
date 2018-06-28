@@ -10,8 +10,12 @@ const router = new VueRouter({
             component: r => require.ensure([], () => r(require('../pages/Home.vue')))
         },
         {
-            path: '/how-to-use',
-            component: r => require.ensure([], () => r(require('../pages/Article.vue')))
+            path: '/insert-image',
+            component: r => require.ensure([], () => r(require('../pages/InsertImage.vue')))
+        },
+        {
+            path: '/serialize-or-parse-emotions-content',
+            component: r => require.ensure([], () => r(require('../pages/SerializeOrParseEmotionsContent.vue')))
         }
     ]
 });

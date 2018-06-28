@@ -3,7 +3,7 @@ import tinymce from 'tinymce';
 window.tinymce = tinymce;
 import router from './routes';
 // import { VueTinymce , TinymceSetting } from '../dist/vue-tinymce';
-import { VueTinymce , TinymceSetting } from '../src/';
+// import { VueTinymce , TinymceSetting } from '../src/';
 import Wrapper from "./pages/Wrapper.vue";
 
 const app = new Vue({
@@ -14,7 +14,14 @@ const app = new Vue({
     router
 });
 
-Vue.component('vue-tinymce', VueTinymce);
+Vue.directive('highlight', function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block) => {
+        hljs.highlightBlock(block)
+    })
+})
+
+// Vue.component('vue-tinymce', VueTinymce);
 
 // var vm = new Vue({
 //     el: '#app',
@@ -43,7 +50,7 @@ Vue.component('vue-tinymce', VueTinymce);
 //                 {
 //                     content: '<p>Vue</p><hr><p>The Progressive JavaScript Framework</p>',
 //                     setting: {
-//                         language_url: "langs/zh_CN.js",
+//                         language_url: "utils/tinymce/langs/zh_CN.js",
 //                         height: 200,
 //                         theme: 'inlite',
 //                         menubar: false,

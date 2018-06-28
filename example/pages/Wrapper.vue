@@ -1,25 +1,39 @@
 <template>
-    <div>
-        <div class="brand">
-            <img src="/vu-tinymce-logo.png" alt="vu-tinymce">
-        </div>
-        <section class="container">
+    <section class="container">
+        <nav class="side">
+            <div class="brand">
+                <img src="/vu-tinymce-logo.png" alt="vu-tinymce">
+            </div>
             <ul class="nav">
                 <li><router-link to="/home">How to use</router-link></li>
                 <li>
                     <span>Example:</span>
                     <ul>
-                        <li><router-link to="/home">Add button</router-link></li>
-                        <li><router-link to="/home">Insert image</router-link></li>
-                        <li><router-link to="/home">Insert emotions</router-link></li>
+                        <li><router-link to="/insert-image">Insert image</router-link></li>
+                        <li><router-link to="/serialize-or-parse-emotions-content">Serialize or parse emotions content</router-link></li>
                     </ul>
                 </li>
             </ul>
-            <router-view></router-view>
-        </section>
-    </div>
+        </nav>
+        <div class="main">
+            <div class="inner">
+                <router-view></router-view>
+            </div>
+        </div>
+    </section>
 </template>
 <style>
+body{
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.hljs{
+    border-radius: 5px;
+    padding: 1.5em 1.25em;
+}
 .code{
     background-color: #f3f3f3;
     border-radius: 5px;
@@ -27,10 +41,33 @@
     padding: 1em;
     line-height: 1.5em;
 }
+.btn{
+    display: inline-block;
+    background-color: #41b883;
+    color: #f1f1f1;
+    padding: .25em .865em;
+    border-radius: 3px;
+    font-style: normal;
+    text-decoration: unset;
+}
 </style>
-<style scoped>
+<style lang="css" scoped>
     .container{
-        width: 960px;
+        display: flex;
+        align-items: stretch;
+    }
+    .side{
+        background: #fff;
+        min-width: 300px;
+    }
+    .main{
+        background: #fff;
+        overflow: auto;
+        padding: 1em;
+        flex-grow: 1;
+    }
+    .inner{
+        width: 786px;
         margin: 0 auto;
     }
     .brand > img{
@@ -38,19 +75,16 @@
         margin: 0 auto;
     }
     .nav{
-        padding-left: 0;
-        text-align: center;
+        padding-left: 2em;
+        text-align: left;
     }
     .nav li{
-        display: inline;
-        margin-left:1em;
-        margin-right:1em;
+        margin:1em 0;
     }
     .nav li>ul{
+        padding-left: 2em;
         list-style: none;
         display: inline;
-        padding: 0;
-        background-color: #f2f2f2;
     }
     .nav li>ul>li{
         margin-left: .5em;
