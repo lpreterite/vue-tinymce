@@ -1,95 +1,114 @@
 import Vue from 'vue';
+import tinymce from 'tinymce';
+window.tinymce = tinymce;
+import router from './routes';
 // import { VueTinymce , TinymceSetting } from '../dist/vue-tinymce';
-import { VueTinymce , TinymceSetting } from '../src/';
+// import { VueTinymce , TinymceSetting } from '../src/';
+import Wrapper from "./pages/Wrapper.vue";
 
-Vue.component('vue-tinymce', VueTinymce);
-
-var vm = new Vue({
+const app = new Vue({
+    name: 'root',
     el: '#app',
-    data: function(){
-        setTimeout(()=>{
-            this.tinymce[0].content = 'html content'+ Date.now() +'';
-        }, 1000);
+    template: '<App />',
+    components: { "App": Wrapper },
+    router
+});
 
-        return {
-            title: 'VueTinymce',
-            emotions: {
-                '[哈哈]': '//img.t.sinajs.cn/t4/appstyle/expression/ext/normal/19/heia_thumb.gif'
-            },
-            format: {
-                after: '',
-                before: ''
-            },
-            tinymce: [
-                {
-                    content: 'html content',
-                    setting: Object.assign(TinymceSetting, {
-                        language_url: "langs/zh_CN.js",
-                        height: 200
-                    })
-                },
-                {
-                    content: '<p>Vue</p><hr><p>The Progressive JavaScript Framework</p>',
-                    setting: {
-                        language_url: "langs/zh_CN.js",
-                        height: 200,
-                        theme: 'inlite',
-                        menubar: false,
-                        keep_styles: false,
-                        invalid_styles: 'color font-size',
-                        plugins: 'image table link paste contextmenu textpattern autolink',
-                        insert_toolbar: 'quickimage quicktable',
-                        selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
-                        inline: true,
-                        paste_data_images: true,
-                    }
-                }
-            ]
-        }
-    },
-    methods: {
-        getTinymceId(name){
-            alert(this.$refs[name].id);
-        },
-        insertImg(editor, {path, key}){
-            editor.undoManager.transact(function(){
-                editor.focus();
-                editor.selection.setContent(editor.dom.createHTML('img', {src: path, 'data-key': key}));
-            })
-        },
-        insertEmotion(editor, key){
-            this.insertImg(editor, {key, path:this.emotions[key]});
-        },
-        formatHtml(html, emotions){
-            var parser = new tinymce.html.DomParser();
-            var serializer = new tinymce.html.Serializer();
-            var nodes = parser.parse(html);
-            nodes.getAll('img').map(function(item){
-                var key = item.attr('data-key') || '';
-                if(key.length > 0){
-                    var spanNode = new tinymce.html.Node('span', 1);
-                    var textNode = new tinymce.html.Node('#text', 3);
-                    textNode.value = key;
-                    spanNode.append(textNode);
-                    item.replace(spanNode);
-                }
-            });
-            return serializer.serialize(nodes);
-        },
-        restoreHtml(html, emotions){
-            var parser = new tinymce.html.DomParser();
-            var serializer = new tinymce.html.Serializer();
-            var nodes = parser.parse(html);
-            nodes.getAll('#text').map(function(item){
-                var value = emotions[item.value];
-                if(value){
-                    var imgNode = new tinymce.html.Node('img', 1);
-                    imgNode.attr('data-key', item.value);
-                    imgNode.attr('src', value);
-                    item.replace(imgNode);
-                }
-            })
-            return serializer.serialize(nodes);
-        }
-    }
+Vue.directive('highlight', function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block) => {
+        hljs.highlightBlock(block)
+    })
 })
+
+// Vue.component('vue-tinymce', VueTinymce);
+
+// var vm = new Vue({
+//     el: '#app',
+//     data: function(){
+//         setTimeout(()=>{
+//             this.tinymce[0].content = 'html content'+ Date.now() +'';
+//         }, 1000);
+
+//         return {
+//             title: 'VueTinymce',
+//             emotions: {
+//                 '[哈哈]': '//img.t.sinajs.cn/t4/appstyle/expression/ext/normal/19/heia_thumb.gif'
+//             },
+//             format: {
+//                 after: '',
+//                 before: ''
+//             },
+//             tinymce: [
+//                 {
+//                     content: 'html content',
+//                     setting: Object.assign(TinymceSetting, {
+//                         language_url: "utils/tinymce/langs/zh_CN.js",
+//                         height: 200
+//                     })
+//                 },
+//                 {
+//                     content: '<p>Vue</p><hr><p>The Progressive JavaScript Framework</p>',
+//                     setting: {
+//                         language_url: "utils/tinymce/langs/zh_CN.js",
+//                         height: 200,
+//                         theme: 'inlite',
+//                         menubar: false,
+//                         keep_styles: false,
+//                         invalid_styles: 'color font-size',
+//                         plugins: 'image table link paste contextmenu textpattern autolink',
+//                         insert_toolbar: 'quickimage quicktable',
+//                         selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
+//                         inline: true,
+//                         paste_data_images: true,
+//                     }
+//                 }
+//             ]
+//         }
+//     },
+//     methods: {
+//         getTinymceId(name){
+//             alert(this.$refs[name].id);
+//         },
+//         insertImg(editor, {path, key}){
+//             editor.undoManager.transact(function(){
+//                 editor.focus();
+//                 editor.selection.setContent(editor.dom.createHTML('img', {src: path, 'data-key': key}));
+//             })
+//         },
+//         insertEmotion(editor, key){
+//             this.insertImg(editor, {key, path:this.emotions[key]});
+//         },
+//         formatHtml(html, emotions){
+//             var parser = new tinymce.html.DomParser();
+//             var serializer = new tinymce.html.Serializer();
+//             var nodes = parser.parse(html);
+//             nodes.getAll('img').map(function(item){
+//                 var key = item.attr('data-key') || '';
+//                 if(key.length > 0){
+//                     var spanNode = new tinymce.html.Node('span', 1);
+//                     var textNode = new tinymce.html.Node('#text', 3);
+//                     textNode.value = key;
+//                     spanNode.append(textNode);
+//                     item.replace(spanNode);
+//                 }
+//             });
+//             return serializer.serialize(nodes);
+//         },
+//         restoreHtml(html, emotions){
+//             var parser = new tinymce.html.DomParser();
+//             var serializer = new tinymce.html.Serializer();
+//             var nodes = parser.parse(html);
+//             nodes.getAll('#text').map(function(item){
+//                 var value = emotions[item.value];
+//                 if(value){
+//                     var imgNode = new tinymce.html.Node('img', 1);
+//                     imgNode.attr('data-key', item.value);
+//                     imgNode.attr('src', value);
+//                     item.replace(imgNode);
+//                 }
+//             })
+//             return serializer.serialize(nodes);
+//         }
+//     }
+// })

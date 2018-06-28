@@ -63,7 +63,7 @@ export default {
                         editor.on('input change undo redo execCommand KeyUp', ()=>{
                             if(this.status === INPUT || this.status === INIT) return this.status = CHANGED;
                             this.$emit('input', editor.getContent());
-                            console.log('editor change', editor.getContent());
+                            // console.log('editor change', editor.getContent());
                         });
                         //fix have chang not to emit input,more see issues #4
                         editor.on('NodeChange', ()=>{

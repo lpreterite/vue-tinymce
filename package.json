@@ -1,20 +1,20 @@
 {
-  "name": "vue-tinymce",
+  "name": "@packy-tang/vue-tinymce",
   "version": "0.1.5",
   "description": "tinymce by vue component",
   "main": "dist/vue-tinymce.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/serve --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --config ./build/ --progress --hide-modules"
+    "dev": "node --harmony node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development webpack-dev-server --config ./build/serve --open --hot",
+    "build": "node --harmony node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production webpack --config ./build/ --progress --hide-modules"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lpreterite/vue-tinymce.git"
   },
   "keywords": [
-      "tinymce",
-      "vue",
-      "textarea"
+    "tinymce",
+    "vue",
+    "textarea"
   ],
   "author": "packy-tang <lpreterite@126.com>",
   "license": "MIT",
@@ -27,17 +27,17 @@
     "vue": "^2.2.1"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
+    "babel-core": "^6.26.0",
     "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
+    "babel-preset-env": "^1.6.1",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
-    "json-server": "^0.9.6",
     "node-sass": "^4.5.0",
     "sass-loader": "^5.0.1",
     "vue-loader": "^11.3.4",
+    "vue-router": "^2.3.0",
     "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
