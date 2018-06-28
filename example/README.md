@@ -1,9 +1,8 @@
 # example
 
-## Features
+## Todolist
 
-- [ ] How to use
-- [ ] Use scaffold
-- [ ] Add button
-- [ ] Insert image
-- [ ] Insert emotions
+- [x] How to use
+- [x] Insert image
+- [x] Serialize or parse emotions content
+- [x] Other Style

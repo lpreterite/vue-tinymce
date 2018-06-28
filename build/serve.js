@@ -12,6 +12,10 @@ options.output = {
 options.devServer = {
     historyApiFallback: true,
     noInfo: true,
-    contentBase: [path.join(__dirname, '../example'),path.join(__dirname, '../node_modules/tinymce')]
+    contentBase: [
+        path.join(__dirname, '../example'),
+        path.join(__dirname, '../node_modules/tinymce'),
+        path.join(__dirname, '../example/utils/tinymce')
+    ]
 };
 module.exports = options;

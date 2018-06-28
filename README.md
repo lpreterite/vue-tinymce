@@ -10,7 +10,7 @@ A vue component for TinyMCE
 
 - [x] v-model support
 - [x] self managed id
-- [ ] add more tinymce example
+- [x] add more tinymce example
 
 ## How to use
 
