@@ -1,5 +1,6 @@
 # vue-tinymce
 
+[![npm version](https://img.shields.io/npm/v/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
 ![vue](https://img.shields.io/badge/vue-%5E2.2.x-green.svg)
 ![vue](https://img.shields.io/badge/tinymce-%5E4.5.7-green.svg)
 
