@@ -10,6 +10,10 @@ const router = new VueRouter({
             component: r => require.ensure([], () => r(require('../pages/Home.vue')))
         },
         {
+            path: '/other-style',
+            component: r => require.ensure([], () => r(require('../pages/OtherStyle.vue')))
+        },
+        {
             path: '/insert-image',
             component: r => require.ensure([], () => r(require('../pages/InsertImage.vue')))
         },

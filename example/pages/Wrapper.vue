@@ -11,6 +11,7 @@
                     <ul>
                         <li><router-link to="/insert-image">Insert image</router-link></li>
                         <li><router-link to="/serialize-or-parse-emotions-content">Serialize or parse emotions content</router-link></li>
+                        <li><router-link to="/other-style">Other Style</router-link></li>
                     </ul>
                 </li>
             </ul>
