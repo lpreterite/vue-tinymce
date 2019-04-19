@@ -17,11 +17,14 @@ export default {
         setting: {
             type: Object,
             default: function(){ 
-                return tinymceSetting;
+                return {};
             }
         }
     },
     render(createElement){
+        if(typeof tinymce === "undefined"){
+            return createElement('div', "tinymce is undefined"); 
+        }
         return createElement('div', {
             attrs: {
                 id: this.id
