@@ -1,12 +1,23 @@
 {
   "name": "@packy-tang/vue-tinymce",
-  "version": "0.1.5",
-  "description": "tinymce by vue component",
-  "main": "dist/vue-tinymce.js",
+  "version": "0.2.0",
+  "description": "A simple vue-based tinymce component",
+  "main": "dist/vue-tinymce.cjs.js",
+  "module": "dist/vue-tinymce.esm.js",
+  "jsnext:main": "dist/vue-tinymce.esm.js",
+  "browser": "dist/vue-tinymce.umd.js",
   "scripts": {
-    "dev": "node --harmony node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development webpack-dev-server --config ./build/serve --open --hot",
-    "build": "node --harmony node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production webpack --config ./build/ --progress --hide-modules"
+    "build": "cross-env BUILD=production rollup -c",
+    "watch": "rollup -c -w",
+    "pretest": "rollup -c",
+    "test": "nyc mocha",
+    "prepublish": "cross-env BUILD=production npm test",
+    "doc": "docsify serve docs"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lpreterite/vue-tinymce.git"
@@ -23,23 +34,27 @@
   },
   "homepage": "https://github.com/lpreterite/vue-tinymce#readme",
   "dependencies": {
-    "tinymce": "^4.5.7",
-    "vue": "^2.2.1"
+    "tinymce": "^5.0.3"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-env": "^1.6.1",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.9.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1",
-    "vue-loader": "^11.3.4",
-    "vue-router": "^2.3.0",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "docsify": "^4.9.1",
+    "jsdom": "~14.0.0",
+    "jsdom-global": "~3.0.2",
+    "mocha": "^6.1.1",
+    "nyc": "^13.3.0",
+    "reify": "^0.18.1",
+    "rollup": "~1.9.0",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-css-only": "^1.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-vue": "^4.7.2",
+    "rollup-watch": "^4.3.1",
+    "vue": "~2.6.10",
+    "vue-template-compiler": "~2.6.10",
+    "vuep": "^0.8.1"
   }
 }

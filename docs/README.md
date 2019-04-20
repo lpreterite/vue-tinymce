@@ -1,4 +1,4 @@
-![vue-tinymce](docs/assets/vu-tinymce-logo.png)
+![vue-tinymce](assets/vu-tinymce-logo.png)
 
 # vue-tinymce
 

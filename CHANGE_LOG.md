@@ -1,5 +1,9 @@
 # Change log
 
+## 0.2.0
+
+new building and docs
+
 ## 0.1.5
 
 fix the problem of not updating the content in real time.
