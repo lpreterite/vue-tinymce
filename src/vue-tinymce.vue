@@ -5,6 +5,7 @@ const INPUT = 1;
 const CHANGED = 2;
 
 export default {
+    name: "VueTinymce",
     props: {
         value: {
             type: String,
