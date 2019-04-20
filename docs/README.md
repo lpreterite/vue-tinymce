@@ -1,3 +1,5 @@
+![vue-tinymce](assets/vu-tinymce-logo.png)
+
 # vue-tinymce
 
 [![npm version](https://img.shields.io/npm/v/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
@@ -6,7 +8,6 @@
 [![NPM downloads](http://img.shields.io/npm/dm/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
 
 A vue component for TinyMCE
-
 
 ## Features
 
