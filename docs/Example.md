@@ -205,6 +205,18 @@ export default {
 
 <vuep template="#customstyle" :style="{height: '600px'}"></vuep>
 
+### Custom files
+
+```sh
+- docs/
+    - assets/
+        - tinymce/
+            - skins/
+                - custom/
+    - utils/
+        index.js
+```
+
 <script v-pre type="text/x-template" id="customstyle">
 <template>
     <div>
