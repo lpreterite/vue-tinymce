@@ -37,8 +37,8 @@ export default [
 		input: "docs/main.js",
 		output: [
 			{
-				name:"vendor",
-				file:"docs/dist/vendor.js",
+				name:"bundle",
+				file:"docs/assets/bundle.js",
 				format: "umd",
 				exports: "named",
 				sourcemap,
