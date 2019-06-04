@@ -34,7 +34,7 @@ export default {
     },
     data(){
         return {
-            id: 'vue-tinymce-'+Date.now(),
+            id: 'vue-tinymce-'+Date.now()+Math.floor(Math.random() * 1000),
             editor: null,
             status: INIT,
             backup: ''
