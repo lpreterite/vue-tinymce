@@ -19,6 +19,10 @@ export default {
             type: Function,
             default: function(){}
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
         setting: {
             type: Object,
             default: function(){ 
@@ -50,6 +54,9 @@ export default {
             if(this.status === CHANGED) return this.status = INPUT;
             if(!this.editor || !this.editor.initialized) return; // fix editor plugin is loading and set content will throw error.
             this.setContent(this.editor, val);
+        },
+        disabled(val){
+            this.editor.setMode(val?"readonly":"design")
         }
     },
     created(){
