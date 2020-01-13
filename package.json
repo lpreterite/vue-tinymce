@@ -34,8 +34,12 @@
   },
   "homepage": "https://github.com/lpreterite/vue-tinymce#readme",
   "dependencies": {
-    "nrm": "^1.2.1",
+    "vue": "^2.6.0"
     "tinymce": "^5.0.3"
+  },
+  "peerDependencies": {
+    "tinymce": "^5.0.0",
+    "vue": "^2.6.0"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",
