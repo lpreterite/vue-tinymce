@@ -34,11 +34,11 @@
   },
   "homepage": "https://github.com/lpreterite/vue-tinymce#readme",
   "dependencies": {
+    "tinymce": "^5.0.6",
     "vue": "^2.6.0"
-    "tinymce": "^5.0.3"
   },
   "peerDependencies": {
-    "tinymce": "^5.0.0",
+    "tinymce": "^5.0.6",
     "vue": "^2.6.0"
   },
   "devDependencies": {
