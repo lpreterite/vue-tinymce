@@ -51,14 +51,13 @@ export default {
     created(){
         if(typeof tinymce === "undefined") throw new Error('tinymce undefined');
     },
-    mounted(){
+    beforeMount () {
         const setting = Object.assign({},
             this.setting,
             {
                 selector: '#'+this.id,
                 setup: (editor)=> {
                     this.setup(editor);
-                    this.editor = editor;
                     // console.log('setup');
                     editor.on('init', ()=>{
                         // console.log('init', this.value);
@@ -78,7 +77,14 @@ export default {
             }
         );
 
-        tinymce.init(setting);
+        this.editor = tinymce.createEditor(setting.selector, setting)
+    },
+    mounted(){
+        this.editor.targetElm = this.$el
+        this.editor.render()
+    },
+    updated () {
+        this.editor.render()
     },
     beforeDestroy: function(){
         this.editor.remove();
