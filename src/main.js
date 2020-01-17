@@ -1,6 +1,5 @@
-import TinymceSetting from './setting'
 import VueTinymce from './vue-tinymce.vue'
-export { TinymceSetting, VueTinymce }
+export { VueTinymce }
 class VuePlugin{
     constructor(){
         const { prefix } = { prefix: "" }
