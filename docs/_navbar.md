@@ -1,3 +1,3 @@
-* [Getting started](/README.md)
+* [如何使用](/README.md)
 
-* [Example](/Example.md)
+* [使用细节](/Example.md)

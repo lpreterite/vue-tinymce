@@ -1,78 +1,79 @@
+
 ![vue-tinymce](assets/vu-tinymce-logo.png)
 
 # vue-tinymce
 
 [![npm version](https://img.shields.io/npm/v/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
-![vue](https://img.shields.io/badge/vue-%5E2.2.x-green.svg)
-![vue](https://img.shields.io/badge/tinymce-%5E4.5.7-green.svg)
+![vue](https://img.shields.io/github/package-json/dependency-version/lpreterite/vue-tinymce/vue)
+![tinymce](https://img.shields.io/github/package-json/dependency-version/lpreterite/vue-tinymce/tinymce)
 [![NPM downloads](http://img.shields.io/npm/dm/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
 
-A vue component for TinyMCE
+提供给 vue 开发者使用的 TinyMCE 组件
 
-## Features
+## 目的
 
-- [x] v-model support
-- [x] self managed id
-- [x] add more tinymce example
+为开发人员简单使用 TinyMCE 的 Vue 组件。提供非常简单易懂的源代码提供给开发人员作为参考，当然你也可以直接使用这个组件到你的项目。发现问题可以提到 issue，期望你的反馈 👏。
 
-## How to use
+## 如何使用
 
-### setup
+### 安装组件
 
 ```sh
+yarn add @packy-tang/vue-tinymce
+# or
 npm install @packy-tang/vue-tinymce
 ```
 
-### use
+### 引入
 
 ```html
 <template>
-    <script src="//cdn.bootcss.com/tinymce/4.9.4/tinymce.min.js"></script>
+    <!-- 全局引入TinyMCE -->
+    <script src="//unpkg.com/tinymce@5.1.5/tinymce.min.js"></script>
+    <!-- App -->
     <div id="app">
         <vue-tinymce
-            ref="tinymce"
             v-model="content"
-            :setting="setting">
-        </vue-tinymce>
+            :setup="setup"
+            :setting="setting" />
     </div>
 </template>
 <script>
-    import Vue from 'vue';
-    import { default as VueTinymce, TinymceSetting } from '@packy-tang/vue-tinymce';
+    import Vue from "vue"
+    import VueTinymce from "@packy-tang/vue-tinymce"
 
+    //安装组件
     Vue.use(VueTinymce)
 
     new Vue({
-        el: '#app',
-        data: function(){
+        el: "#app",
+        data: function() {
             return {
-                content: '<p>html content</p>',
+                content: "<p>html content</p>",
                 setting: {
-                    ...TinymceSetting,
-                    height: 200,
-                    language_url: "langs/zh_CN.js",
-                    block_formats: "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;"
+                    height: 500
                 }
+            }
+        },
+        methods: {
+            setup(editor) {
+                console.log(editor)
             }
         }
     })
 </script>
 ```
 
-### Get Editor to do something
+### 其他使用例子
 
-```js
-const bm = this.$refs.tinymce.editor.selection.getBookmark();
-console.log(bm);
-```
+- webpack使用例子：传送门(待补上)
+- vue-cli使用例子：传送门(待补上)
 
-## Run build
+## 属性
 
-```sh
-// install
-npm i
-
-npm run build
-//or
-npm run watch
-```
+| 名称       | 描述                                                  |
+| ---------- | ----------------------------------------------------- |
+| `:content`   | 类型`String`，作为文本内容传入编辑器，可以使用`v-model`实现双向绑定 |
+| `@change`   | 类型`Function`，编辑器中`Input` `Change` `Undo` `Redo` `ExecCommand` `KeyUp` `NodeChange`事件响应后触发的事件返回文本内容                  |
+| `:setting` | 类型`Object`，编辑器的设置，`setup`不建议在这设置     |
+|`:setup`| 类型`Function`, 常用与自定义编辑器处理，组件内部做了些处理，建议在这里添加自定义的代码 |
