@@ -1,6 +1,4 @@
 import Vue from "vue"
-import { default as VueTinymce, TinymceSetting } from ".."
+import VueTinymce from ".."
 
 Vue.use(VueTinymce)
-
-window.VueTinymce = { TinymceSetting }
