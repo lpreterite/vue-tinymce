@@ -47,3 +47,14 @@ const scaffold_settings = {
   See the Pen <a href='https://codepen.io/packy1980/pen/oNgPrqx'>TinyMCE5.x_EmotionsExample</a> by packy
   (<a href='https://codepen.io/packy1980'>@packy1980</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## 在Vue-Cli中使用
+
+**值得注意的是按需引入使用**，需要十分清楚你所使用的编辑器主题、皮肤和插件，当你设置的编辑器主题、皮肤和插件没有正确引入导致编辑器无法显示。
+
+如果使用场景是**管理后台**，**建议使用全局引入的方式来使用**，编辑器主题、皮肤和插件将会自动按需加载，相对引入式使用会来得方便和灵活。
+
+- [全局引入](https://github.com/lpreterite/vue-tinymce-example/tree/master/vue#%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5)
+- [按需引入](https://github.com/lpreterite/vue-tinymce-example/tree/master/vue#%E6%8C%89%E9%9C%80%E5%BC%95%E5%85%A5)
+
+按需引入例子：[传送门](https://github.com/lpreterite/vue-tinymce-example/tree/master/vue)
