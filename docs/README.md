@@ -66,7 +66,7 @@ npm install @packy-tang/vue-tinymce
 
 ### 其他使用例子
 
-- vue-cli使用例子：[传送门](http://lpreterite.github.io/vue-tinymce/#/Example?id=%E5%9C%A8Vue-Cli%E4%B8%AD%E4%BD%BF%E7%94%A8)
+- vue-cli使用例子：[传送门](https://github.com/lpreterite/vue-tinymce-example/tree/master/vue)
 - webpack使用例子：传送门(待补上)
 
 
