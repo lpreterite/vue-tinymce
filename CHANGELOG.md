@@ -32,3 +32,9 @@ support v-model, and fix input bug.
 ## 1.0.0
 
 更新文档并将语言改为中文，并且移除脚手架设置的提供，初次化编辑器的过程不再使用`tinymce.init()`。
+
+## 1.1.0
+
+- 修复赋空字符给`content`属性时编辑器没有清空数据的问题 #12
+- 增加赋空值(`null`)给`content`将重置编辑器内容及状态的特性
+- `package.json`移除`umd`文件入口

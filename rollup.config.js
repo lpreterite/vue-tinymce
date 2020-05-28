@@ -9,6 +9,7 @@ import pkg from './package.json'
 
 const name = "VueTinymce"
 const sourcemap = true
+pkg.browser = "dist/vue-tinymce.umd.js"
 
 const plugins = []
 if(process.env.BUILD === 'production'){

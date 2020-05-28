@@ -1,11 +1,10 @@
 {
   "name": "@packy-tang/vue-tinymce",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple vue-based tinymce component",
   "main": "dist/vue-tinymce.cjs.js",
   "module": "dist/vue-tinymce.esm.js",
   "jsnext:main": "dist/vue-tinymce.esm.js",
-  "browser": "dist/vue-tinymce.umd.js",
   "scripts": {
     "build": "cross-env BUILD=production rollup -c",
     "watch": "rollup -c -w",
