@@ -69,6 +69,7 @@ export default {
             this.changedLog({ type: "propsChanged" }, this.status, val, "--")
             if(this.status === INPUT) return;
             if(!this.editor || !this.editor.initialized) return; // fix editor plugin is loading and set content will throw error.
+            if(val === null) return this.resetContent("");
             this.setContent(val);
         },
         disabled(val){
@@ -126,6 +127,13 @@ export default {
         setContent(val, editor){
             if(!editor) editor = this.editor
             return editor.setContent(val)
+        },
+        resetContent(val, editor){
+            if(!editor) editor = this.editor
+            if(!!editor.resetContent) return editor.resetContent(val)
+            editor.setContent(val)
+            editor.setDirty(false)
+            editor.undoManager.clear()
         },
         onChanged(e, editor){
             if(!editor) editor = this.editor
