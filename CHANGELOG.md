@@ -38,3 +38,8 @@ support v-model, and fix input bug.
 - 修复赋空字符给`content`属性时编辑器没有清空数据的问题 #12
 - 增加赋空值(`null`)给`content`将重置编辑器内容及状态的特性
 - `package.json`移除`umd`文件入口
+
+## 1.1.1
+
+修复再次赋值至content时无法更新到编辑器 #27
+
