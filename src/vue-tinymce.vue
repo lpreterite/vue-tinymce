@@ -96,7 +96,6 @@ export default {
                             this.status = INPUT       //编辑器录入文字时标记为`INPUT`状态
                         })
                         editor.on('SetContent', e=>{ //编辑器在插入图片和撤销/重做时触发，组件content更新数据也会导致触发
-                            this.status = INPUT      //编辑器在响应`setContent`方法后标记为`INPUT`状态
                             this.changedLog(e, this.status, editor.getContent(), "--")
                         })
                         editor.on('Blur', e=>{
