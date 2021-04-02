@@ -44,7 +44,7 @@ export default [
 				exports: "named",
 				sourcemap,
 				globals:{
-					Vue:"vue",
+					vue:"Vue",
 					tinymce: "tinymce"
 				}
 			}
