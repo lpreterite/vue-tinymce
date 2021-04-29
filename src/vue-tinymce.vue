@@ -61,13 +61,13 @@ export default {
             id: 'vue-tinymce-'+Date.now()+Math.floor(Math.random() * 1000),
             editor: null,
             status: INIT,
-            backup: ''
+            bookmark: null
         }
     },
     watch: {
         content(val, oldVal){
-            this.changedLog({ type: "propsChanged" }, this.status, val, "--")
-            if(this.status === INPUT) return;
+            this.changedLog({ type: "propsChanged" }, this.status, `${val} | ${oldVal}`, "--")
+            if(this.status === INPUT || oldVal === val) return;
             if(!this.editor || !this.editor.initialized) return; // fix editor plugin is loading and set content will throw error.
             if(val === null) return this.resetContent("");
             this.setContent(val);
@@ -91,7 +91,6 @@ export default {
                     editor.on('init', ()=>{
                         // console.log('init', this.content);
                         this.setContent(this.content, editor)
-
                         editor.on('keyup input', e=>{ //只在编辑器中打字才会触发
                             this.status = INPUT       //编辑器录入文字时标记为`INPUT`状态
                         })
@@ -109,7 +108,6 @@ export default {
                 }
             }
         );
-
         this.editor = tinymce.createEditor(setting.selector, setting)
     },
     mounted(){
@@ -125,7 +123,8 @@ export default {
     methods: {
         setContent(val, editor){
             if(!editor) editor = this.editor
-            return editor.setContent(val)
+            editor.setContent(val)
+            editor.selection.moveToBookmark(this.bookmark)
         },
         resetContent(val, editor){
             if(!editor) editor = this.editor
@@ -136,6 +135,7 @@ export default {
         },
         onChanged(e, editor){
             if(!editor) editor = this.editor
+            if(e.type === 'change') this.bookmark = e.level.bookmark
             const content = editor.getContent()
             this.changedLog(e, this.status, content, "--")
             this.$emit('change', content);
