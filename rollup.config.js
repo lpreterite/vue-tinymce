@@ -1,5 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { terser } from 'rollup-plugin-terser'
 
 import vue from 'rollup-plugin-vue'
@@ -13,7 +13,7 @@ pkg.browser = "dist/vue-tinymce.umd.js"
 
 const plugins = []
 if(process.env.BUILD === 'production'){
-	plugins.push(terser({ sourcemap }))
+	plugins.push(terser())
 }
 
 export default [
