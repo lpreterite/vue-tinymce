@@ -8,6 +8,8 @@
  * 从而避免二次更新的情况，具体请看`content`部分和`editor event`部分的代码。
  * */
 
+import { h } from "vue";
+
 const INIT = 0;
 const INPUT = 1;
 const CHANGED = 2;
@@ -46,11 +48,11 @@ export default {
         },
         debug: Boolean
     },
-    render(createElement){
+    render(){
         if(typeof tinymce === "undefined"){
-            return createElement('div', "tinymce is undefined"); 
+            return h('div', "tinymce is undefined"); 
         }
-        return createElement('div', {
+        return h('div', {
             attrs: {
                 id: this.id
             }
