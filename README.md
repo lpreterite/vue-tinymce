@@ -8,6 +8,8 @@
 ![tinymce](https://img.shields.io/github/package-json/dependency-version/lpreterite/vue-tinymce/tinymce)
 [![NPM downloads](http://img.shields.io/npm/dm/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
 
+> 已支持**vue3**。`npm i @packy-tang/vue-tinymce@next` 就可使用vue3版本支持。
+
 提供给 vue 开发者使用的 TinyMCE 组件
 
 ## 目的
