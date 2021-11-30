@@ -64,3 +64,5 @@ typings/
 .nyc_output
 coverage
 dist
+*-lock*
+*.lock

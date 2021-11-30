@@ -38,11 +38,11 @@
   },
   "peerDependencies": {
     "tinymce": "^5.0.6",
-    "vue": "^2.6.12"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^18.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "@vue/compiler-sfc": "^3.2.23",
     "@vue/test-utils": "^1.1.4",
     "auto-changelog": "^2.3.0",
