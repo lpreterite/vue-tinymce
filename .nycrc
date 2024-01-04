@@ -1,7 +1,3 @@
 {
-    "exclude": [
-        "test",
-        "node_modules",
-        "**/node_modules"
-    ]
+  "extension": [".js", ".vue"]
 }

@@ -6,28 +6,39 @@
   "module": "dist/vue-tinymce.esm.js",
   "jsnext:main": "dist/vue-tinymce.esm.js",
   "scripts": {
-    "build": "cross-env BUILD=production rollup -c",
+    "serve": "vue-cli-service serve",
+    "build": "rollup -c",
     "watch": "rollup -c -w",
-    "pretest": "rollup -c",
-    "test": "nyc mocha",
-    "prepublish": "cross-env BUILD=production npm test",
-    "doc": "docsify serve docs",
-    "release": "release-it"
+    "pretest": "rollup -c -m inline",
+    "test": "mocha './tests/unit/*.spec.js'",
+    "test:coverage": "nyc mocha './tests/unit/*.spec.js'",
+    "prerelease": "npm run build",
+    "release": "release-it",
+    "nvm": "sh bin/nvm.sh",
+    "doc": "docsify serve docs"
   },
   "files": [
     "dist",
     "src"
   ],
+  "engines": {
+    "npm": ">=6.0.0",
+    "node": ">=8.0.0 <=14"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lpreterite/vue-tinymce.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "keywords": [
     "tinymce",
     "vue",
     "textarea"
   ],
-  "author": "packy-tang <lpreterite@126.com>",
+  "author": "packy-tang <lpreterite@126.com> (https://github.com/lpreterite/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lpreterite/vue-tinymce/issues"
@@ -41,27 +52,42 @@
     "vue": "^2.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/register": "^7.13.14",
+    "@release-it/conventional-changelog": "^4.2.0",
+    "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
-    "@vue/compiler-sfc": "^3.0.11",
-    "@vue/test-utils": "^1.1.4",
-    "auto-changelog": "^2.2.1",
-    "chai": "^4.3.4",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-unit-mocha": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.2.9",
+    "@vue/test-utils": "^1.2.2",
+    "chai": "^4.2.0",
+    "core-js": "^2.6.12",
     "cross-env": "^7.0.3",
-    "docsify": "^4.12.1",
-    "jsdom": "~14.0.0",
-    "jsdom-global": "~3.0.2",
+    "docsify": "^4.13.1",
+    "jsdom": "^17.0.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
-    "reify": "^0.20.12",
+    "postcss": "^8.3.6",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-scss": "^4.0.0",
+    "postcss-url": "^10.1.3",
     "release-it": "^14.6.1",
     "rollup": "^2.46.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
-    "rollup-watch": "^4.3.1",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12",
-    "vuep": "^0.8.1"
+    "vue": "^2.6.14",
+    "vue-router": "^3.6.5",
+    "vue-template-compiler": "^2.6.14"
   }
 }
