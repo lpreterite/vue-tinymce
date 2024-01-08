@@ -47,7 +47,8 @@ export default {
       ...props.setting,
       setup: (editor)=> {
           props.debug && console.log("tinymce::setup")
-          editor.on('init', ()=>{ //初次运行时，注入内容
+          //初次运行时，注入内容
+          editor.on('init', ()=>{
               editor.setContent(state.content)
           });
           //更新数据时，通知到组件外部更新
@@ -55,6 +56,14 @@ export default {
               props.debug && console.log("Change::%s-%s", e.command, e.type)
               emit("update:model-value", editor.getContent())
           })
+          //编辑器事件扩展支持，例如在属性处增加 onKeyup="函数"，事件响应回调。
+          Object
+            .entries(attrs)
+            .forEach(([attrKey,attrVal])=>{ //example: attrKey="onKeyup"
+              const eventName = attrKey.stubstring(2)
+              if(attrVal.constructor !== Function) return
+              editor.on(eventName, e=>attrVal(e,editor))
+            })
           props.setup(editor)
       }
     }
