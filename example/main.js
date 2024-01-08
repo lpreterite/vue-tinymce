@@ -1,4 +1,4 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import VueTinymce from "../src/main"
@@ -23,11 +23,9 @@ import 'tinymce/icons/default/icons'
 //本地化
 import "./utils/tinymce/langs/zh_CN.js";
 
-//安装组件
-Vue.use(VueTinymce)
-Vue.config.productionTip = false;
+const app = createApp(App)
+app.use(router);
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+//安装组件
+app.use(VueTinymce({ debug:true }))
+app.mount("#app");

@@ -23,7 +23,7 @@
   ],
   "engines": {
     "npm": ">=6.0.0",
-    "node": ">=8.0.0 <=14"
+    "node": ">=14"
   },
   "repository": {
     "type": "git",
@@ -44,9 +44,7 @@
     "url": "https://github.com/lpreterite/vue-tinymce/issues"
   },
   "homepage": "https://github.com/lpreterite/vue-tinymce#readme",
-  "dependencies": {
-    "tinymce": "^5.0.6"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "tinymce": "^5.0.6",
     "vue": "^2.6.0"
@@ -63,7 +61,7 @@
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-unit-mocha": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
-    "@vue/compiler-sfc": "^3.2.9",
+    "@vue/compiler-sfc": "^3.4.4",
     "@vue/test-utils": "^1.2.2",
     "chai": "^4.2.0",
     "core-js": "^2.6.12",
@@ -86,8 +84,8 @@
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
-    "vue": "^2.6.14",
-    "vue-router": "^3.6.5",
-    "vue-template-compiler": "^2.6.14"
+    "tinymce": "^5.4.2",
+    "vue": "^3.4.4",
+    "vue-router": "^4.2.5"
   }
 }

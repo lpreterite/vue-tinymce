@@ -6,6 +6,7 @@
         src="https://raw.githubusercontent.com/lpreterite/vue-tinymce/HEAD/docs/assets/vu-tinymce-logo.png"
       />
     </div>
+    <button @click="content='tessss'">更新content</button>
     <VueTinymce
       v-model="content"
       :setting="setting" />

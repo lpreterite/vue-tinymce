@@ -1,12 +1,9 @@
 import VueTinymce from './vue-tinymce.vue'
 export { VueTinymce }
-class VuePlugin{
-    constructor(){
-        const { prefix } = { prefix: "" }
-        this.prefix = prefix;
-    }
+function Plugin(options={}){
+  const { prefix="" } = options
+  return {
     install(Vue, options={}){
-        const prefix = options.prefix || this.prefix
         const components = {
             VueTinymce
         }
@@ -15,5 +12,7 @@ class VuePlugin{
             Vue.component(prefix+component.name, component);
         });
     }
+  }
 }
-export default new VuePlugin()
+
+export default Plugin
