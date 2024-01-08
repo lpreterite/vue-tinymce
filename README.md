@@ -4,8 +4,8 @@
 # vue-tinymce
 
 [![npm version](https://img.shields.io/npm/v/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
-![vue](https://img.shields.io/github/package-json/dependency-version/lpreterite/vue-tinymce/vue)
-![tinymce](https://img.shields.io/github/package-json/dependency-version/lpreterite/vue-tinymce/tinymce)
+![vue](https://img.shields.io/npm/dependency-version/@packy-tang/vue-tinymce/peer/vue)
+![tinymce](https://img.shields.io/npm/dependency-version/@packy-tang/vue-tinymce/peer/tinymce)
 [![NPM downloads](http://img.shields.io/npm/dm/@packy-tang/vue-tinymce.svg)](https://www.npmjs.com/package/@packy-tang/vue-tinymce)
 
 提供给 vue 开发者使用的 TinyMCE 组件
@@ -78,7 +78,28 @@ npm install @packy-tang/vue-tinymce
 | `:setting` | 类型`Object`，编辑器的设置，`setup`不建议在这设置     |
 |`:setup`| 类型`Function`, 常用与自定义编辑器处理，组件内部做了些处理，建议在这里添加自定义的代码 |
 
-## 更多使用细节
+### 更多使用细节
 
 想了解更多内容请移步至[使用细节](http://lpreterite.github.io/vue-tinymce/#/Example)
 
+
+## 本地调试
+
+```sh
+# 运行本地例子
+$ npm run serve 
+# 构建
+$ npm run build
+# 发布版本
+$ npm run release
+```
+
+## 构建支持
+
+本仓库由[sao-esm](https://github.com/lpreterite/sao-esm)作为模板构建。
+
+## License
+
+Copyright (c) packy-tang lpreterite@126.com
+
+根据[MIT协议](./LICENSE)的开源软件.
