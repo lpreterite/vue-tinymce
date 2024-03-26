@@ -45,10 +45,10 @@
   },
   "homepage": "https://github.com/lpreterite/vue-tinymce#readme",
   "dependencies": {
-    "tinymce": "^5.0.6"
+    "tinymce": "^7.0.0"
   },
   "peerDependencies": {
-    "tinymce": "^5.0.6",
+    "tinymce": "^7.0.0",
     "vue": "^2.6.0"
   },
   "devDependencies": {
